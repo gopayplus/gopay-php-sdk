@@ -1,0 +1,22 @@
+{
+    "name": "gopayplus/gopay-php-sdk",
+    "description": "A Gopay SDK for PHP.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GopayPlus\\Gopay\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dev",
+            "email": "dev@gopay.plus"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^7.7",
+        "nesbot/carbon": "^2.66"
+    }
+}
