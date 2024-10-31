@@ -15,6 +15,8 @@ final class Transfer extends HttpClient
 
     const QUERY_URL = self::TRANSFER_PREFIX . '/query';
 
+    const BALANCE_QUERY_URL = self::TRANSFER_PREFIX . '/balance/query';
+
     /**
      * @param \GopayPlus\Gopay\Enums\IfCode    $if_code
      * @param \GopayPlus\Gopay\Enums\EntryType $entry_type
@@ -133,6 +135,6 @@ final class Transfer extends HttpClient
         if($ifCode){
             $params['ifCode'] = $ifCode;
         }
-        return $this->postForm(self::QUERY_URL, $params)->toArray();
+        return $this->postForm(self::BALANCE_QUERY_URL, $params)->toArray();
     }
 }
