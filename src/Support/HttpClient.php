@@ -50,7 +50,7 @@ class HttpClient
      * @throws GuzzleException
      * @throws GopayException
      */
-    public function postForm($url, $data): GopayResponse
+    public function postForm($url, $data = []): GopayResponse
     {
         return $this->sendRequest('POST', $url, array_merge($data, $this->fixedParams, $this->addRequiredParams()));
     }

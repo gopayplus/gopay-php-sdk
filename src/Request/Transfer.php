@@ -114,4 +114,25 @@ final class Transfer extends HttpClient
 
         return $this->postForm(self::QUERY_URL, $params)->toArray();
     }
+
+
+    /**
+     * @param string|null $ifCode
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GopayPlus\Gopay\Exceptions\HttpException
+     * @throws \GopayPlus\Gopay\Exceptions\GopayException
+     * @return array{
+     *     balanceAmount: float,
+     *     freezeAmount: float,
+     * }
+     */
+    public function balance($ifCode = ""): array
+    {
+        $params = [];
+        if($ifCode){
+            $params['ifCode'] = $ifCode;
+        }
+        return $this->postForm(self::QUERY_URL, $params)->toArray();
+    }
 }
