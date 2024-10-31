@@ -8,8 +8,9 @@ class Config
 {
 
 
-    public function __construct(private string $key, private string $baseURL, private string $mchNo, private string $appId)
+    public function __construct(private string $baseURL, private string $mchNo, private string $appId, private string $key)
     {
+
     }
 
     public function getKey(): string
