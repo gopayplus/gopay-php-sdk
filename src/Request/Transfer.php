@@ -161,6 +161,6 @@ final class Transfer extends HttpClient
             'mchOrderNo' => $mch_order_no,
         ];
 
-        return $this->postForm(self::QUERY_URL, $params)->toArray();
+        return $this->postForm(self::RECEIPT_URL, $params)->toArray();
     }
 }
