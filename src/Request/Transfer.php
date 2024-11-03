@@ -14,6 +14,7 @@ final class Transfer extends HttpClient
     const TRANSFER_ORDER_URL = self::TRANSFER_PREFIX . 'Order';
 
     const QUERY_URL = self::TRANSFER_PREFIX . '/query';
+    const RECEIPT_URL = self::TRANSFER_ORDER_URL . '/receipt';
 
     const BALANCE_QUERY_URL = self::TRANSFER_PREFIX . '/balance/query';
 
@@ -136,5 +137,30 @@ final class Transfer extends HttpClient
             $params['ifCode'] = $ifCode;
         }
         return $this->postForm(self::BALANCE_QUERY_URL, $params)->toArray();
+    }
+
+    /**
+     * @param string|null $transfer_id
+     * @param string|null $mch_order_no
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GopayPlus\Gopay\Exceptions\HttpException
+     * @throws \GopayPlus\Gopay\Exceptions\GopayException
+     * @return array{
+     *     balanceAmount: float,
+     *     freezeAmount: float,
+     * }
+     */
+    public function receipt(?string $transfer_id, ?string $mch_order_no): array
+    {
+        if (is_null($transfer_id) && is_null($mch_order_no)) {
+            throw new \InvalidArgumentException('one of transferId and mchOrderNo is required');
+        }
+        $params = [
+            'transferId' => $transfer_id,
+            'mchOrderNo' => $mch_order_no,
+        ];
+
+        return $this->postForm(self::QUERY_URL, $params)->toArray();
     }
 }
