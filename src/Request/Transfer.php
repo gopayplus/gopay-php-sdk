@@ -14,7 +14,7 @@ final class Transfer extends HttpClient
     const TRANSFER_ORDER_URL = self::TRANSFER_PREFIX . 'Order';
 
     const QUERY_URL = self::TRANSFER_PREFIX . '/query';
-    const RECEIPT_URL = self::TRANSFER_ORDER_URL . '/receipt';
+    const RECEIPT_URL = self::TRANSFER_PREFIX . '/receipt';
 
     const BALANCE_QUERY_URL = self::TRANSFER_PREFIX . '/balance/query';
 
