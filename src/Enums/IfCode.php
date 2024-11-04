@@ -6,4 +6,5 @@ enum IfCode: string
 {
     case WECHATPAY = 'wxpay';
     case ALIPAY = 'alipay';
+    case ALIAQFPAY = 'aliaqfpay';
 }

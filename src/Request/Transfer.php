@@ -45,6 +45,7 @@ final class Transfer extends HttpClient
      */
     public function transferOrder(IfCode    $if_code,
                                   EntryType $entry_type,
+                                  String    $mch_order_no,
                                   int       $amount,
                                   string    $account_no,
                                   ?string   $account_name = null,
@@ -58,6 +59,7 @@ final class Transfer extends HttpClient
         $params = array_filter([
             'ifCode'       => $if_code->value,
             'entryType'    => $entry_type->value,
+            'mchOrderNo'    => $mch_order_no,
             'amount'       => $amount,
             'currency'     => 'cny',
             'accountNo'    => $account_no,
