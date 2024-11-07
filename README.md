@@ -8,7 +8,7 @@ composer require gopayplus/gopay-php-sdk
 ```
 ## 快速使用
 
-### 订单查询
+### 转账-创建订单
 ```php
 $Config = new Config($this->host,  $this->mch_id, $this->app_id, $this->secret);
 $Transfer = new Transfer($Config);
@@ -29,7 +29,7 @@ $data = $Transfer->transferOrder($if_code, $entry_code,$order_no, $amount, $acco
 
 ```
 
-### 订单查询
+### 转账-订单查询
 ```php
 $Config = new Config("host", "merchant_id",  "app_id", "secret");
 $Transfer = new Transfer($Config);
@@ -37,13 +37,13 @@ $Transfer->query("transfer_id", "out_order_no");
 ```
 
 
-### 额度查询
+### 转账-额度查询
 ```php
 $Config = new Config($this->host,  $this->mch_id, $this->app_id, $this->secret);
 $Transfer = new Transfer($Config);
 $Transfer->balance("aliaqfpay");
 ```
-### 查询回单
+### 转账-查询回单
 ```php
 $Config = new Config($this->host,  $this->mch_id, $this->app_id, $this->secret);
 $Transfer = new Transfer($Config);
