@@ -2,9 +2,6 @@
 
 namespace GopayPlus\Gopay\Request;
 
-use GopayPlus\Gopay\Common\GopayResponse;
-use GopayPlus\Gopay\Enums\EntryType;
-use GopayPlus\Gopay\Enums\IfCode;
 use GopayPlus\Gopay\Support\HttpClient;
 
 final class Transfer extends HttpClient
@@ -19,8 +16,8 @@ final class Transfer extends HttpClient
     const BALANCE_QUERY_URL = self::TRANSFER_PREFIX . '/balance/query';
 
     /**
-     * @param \GopayPlus\Gopay\Enums\IfCode    $if_code
-     * @param \GopayPlus\Gopay\Enums\EntryType $entry_type
+     * @param String                           $if_code
+     * @param String                           $entry_type
      * @param int                              $amount
      * @param string                           $account_no
      * @param string|null                      $account_name
@@ -43,8 +40,8 @@ final class Transfer extends HttpClient
      *     transferId: string
      *  }
      */
-    public function transferOrder(IfCode    $if_code,
-                                  EntryType $entry_type,
+    public function transferOrder(String    $if_code,
+                                  String    $entry_type,
                                   String    $mch_order_no,
                                   int       $amount,
                                   string    $account_no,
@@ -57,8 +54,8 @@ final class Transfer extends HttpClient
                                   ?string   $ext_param = null): array
     {
         $params = array_filter([
-            'ifCode'       => $if_code->value,
-            'entryType'    => $entry_type->value,
+            'ifCode'       => $if_code,
+            'entryType'    => $entry_type,
             'mchOrderNo'    => $mch_order_no,
             'amount'       => $amount,
             'currency'     => 'cny',
